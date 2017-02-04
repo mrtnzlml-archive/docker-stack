@@ -1,6 +1,9 @@
     docker-compose down
     docker-compose build
-    docker-compose up
+    docker-compose up -d
+    docker-compose logs
+
+    docker-compose logs; while [ $? -ne 0 ]; do docker-compose logs; done;
 
 Connect to the running container:
 

@@ -22,7 +22,7 @@ services:
         - PGID=1000
         - NODE_VERSION=stable
         - YARN_VERSION=latest
-        - TZ=UTC
+        - TZ=Europe/Prague
     volumes_from:
       - applications
     extra_hosts:
@@ -30,7 +30,7 @@ services:
       - "dockerhost:10.0.75.1"
     ports:
        - "2222:22"
-    tty: true
+#    tty: true # https://github.com/docker/compose/issues/3106
 
 ### PHP-FPM Container #######################################
 
@@ -108,21 +108,6 @@ services:
       - redis:/data
     ports:
       - "6379:6379"
-
-### RabbitMQ Container ######################################
-
-  rabbitmq:
-    build: ./rabbitmq
-    ports:
-      - "5672:5672"
-      - "15671:15671"
-      - "8080:15672"
-    privileged: true
-    environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
-    links:
-      - php-fpm
 
 ### Volumes Setup ###########################################
 
