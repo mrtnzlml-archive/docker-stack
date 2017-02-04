@@ -12,7 +12,6 @@ services:
     build:
       context: ./php-fpm
       args:
-        - INSTALL_XDEBUG=false
         - INSTALL_ZIP_ARCHIVE=false
         - INSTALL_OPCACHE=true
       dockerfile: Dockerfile-71
