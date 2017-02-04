@@ -11,8 +11,6 @@ services:
     image: x/php-fpm
     build:
       context: ./php-fpm
-      args:
-        - INSTALL_OPCACHE=true
       dockerfile: Dockerfile-71
     volumes_from:
       - applications
