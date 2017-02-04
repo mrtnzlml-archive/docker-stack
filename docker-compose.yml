@@ -2,14 +2,10 @@ version: '2'
 
 services:
 
-### Applications Code Container #############################
-
-  applications:
+  applications: # Applications Code Container
     image: tianon/true
     volumes:
       - /home/martin/Work:/var/www
-
-### PHP-FPM Container #######################################
 
   php-fpm:
     build:
@@ -31,8 +27,6 @@ services:
       - PHP_IDE_CONFIG=serverName=laravel
       - NETTE_DEBUG=1
 
-### Nginx Server Container ##################################
-
   nginx:
     build:
       context: ./nginx
@@ -49,8 +43,6 @@ services:
     links:
       - php-fpm
 
-### MySQL Container #########################################
-
   mysql:
     build:
       context: ./mysql
@@ -63,8 +55,6 @@ services:
     ports:
       - "3306:3306"
 
-### PostgreSQL Container ####################################
-
   postgres:
     build: ./postgres
     volumes:
@@ -75,12 +65,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
 
-### Volumes Setup ###########################################
-
 volumes:
   mysql:
     driver: local
   postgres:
-    driver: local
-  sessions: ## nothing is connected to this (- ./data/sessions:/sessions)
     driver: local
