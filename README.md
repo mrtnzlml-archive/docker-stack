@@ -1,6 +1,6 @@
-TODO: add `php` into `/usr/local/bin/php`
-
-    docker-compose down && docker-compose up
+    docker-compose down
+    docker-compose build
+    docker-compose up
 
 Connect to the running container:
 
@@ -13,6 +13,8 @@ Connect to the running container:
     address=/.adminer.loc/127.0.0.1
 
 `systemctl restart dnsmasq`
+
+    ln -s /home/martin/Work/mrtnzlml/docker-stack/bin/php.sh /usr/local/bin/php
 
 Inspiration:
 - https://github.com/laradock/laradock
