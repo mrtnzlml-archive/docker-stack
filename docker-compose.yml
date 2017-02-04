@@ -9,29 +9,6 @@ services:
     volumes:
       - /home/martin/Work:/var/www
 
-### Workspace Utilities Container ###########################
-
-  workspace:
-    build:
-      context: ./workspace
-      args:
-        - INSTALL_NODE=true
-        - INSTALL_YARN=true
-        - COMPOSER_GLOBAL_INSTALL=true
-        - PUID=1000
-        - PGID=1000
-        - NODE_VERSION=stable
-        - YARN_VERSION=latest
-        - TZ=Europe/Prague
-    volumes_from:
-      - applications
-    extra_hosts:
-      # IMPORTANT: Replace with your Docker Host IP (will be appended to /etc/hosts)
-      - "dockerhost:10.0.75.1"
-    ports:
-       - "2222:22"
-#    tty: true # https://github.com/docker/compose/issues/3106
-
 ### PHP-FPM Container #######################################
 
   php-fpm:
@@ -46,8 +23,6 @@ services:
       - applications
     expose:
       - "9000"
-    links:
-      - workspace
     extra_hosts:
       # IMPORTANT: Replace with your Docker Host IP (will be appended to /etc/hosts)
       - "dockerhost:10.0.75.1"
