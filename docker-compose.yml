@@ -100,23 +100,12 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
 
-### Redis Container #########################################
-
-  redis:
-    build: ./redis
-    volumes:
-      - redis:/data
-    ports:
-      - "6379:6379"
-
 ### Volumes Setup ###########################################
 
 volumes:
   mysql:
     driver: local
   postgres:
-    driver: local
-  redis:
     driver: local
   sessions: ## nothing is connected to this (- ./data/sessions:/sessions)
     driver: local
