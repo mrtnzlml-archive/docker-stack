@@ -1,0 +1,16 @@
+sudo: required
+
+services:
+  - docker
+
+before_script:
+  - docker-compose up -d
+
+script:
+  - docker ps | grep dockerstack_mysql
+  - docker ps | grep dockerstack_nginx
+  - docker ps | grep dockerstack_rabbitmq
+  - docker ps | grep dockerstack_php-fpm
+  - docker ps | grep dockerstack_workspace
+  - docker ps | grep dockerstack_redis
+  - docker ps | grep dockerstack_postgres
