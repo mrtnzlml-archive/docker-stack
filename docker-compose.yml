@@ -16,9 +16,6 @@ services:
       - applications
     expose:
       - "9000"
-    extra_hosts:
-      # IMPORTANT: Replace with your Docker Host IP (will be appended to /etc/hosts)
-      - "dockerhost:10.0.75.1"
     environment:
       - NETTE_DEBUG=1
 
