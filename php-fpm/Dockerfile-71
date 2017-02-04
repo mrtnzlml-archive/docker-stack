@@ -7,13 +7,7 @@ RUN docker-php-ext-install opcache && \
 
 COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
-#
-#--------------------------------------------------------------------------
-# Final Touch
-#--------------------------------------------------------------------------
-#
-
-ADD ./laravel.pool.conf /usr/local/etc/php-fpm.d/
+ADD ./custom.pool.conf /usr/local/etc/php-fpm.d/
 
 RUN rm -r /var/lib/apt/lists/*
 
