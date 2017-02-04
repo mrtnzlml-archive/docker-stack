@@ -3,11 +3,9 @@ FROM laradock/php-fpm:7.1--1.3
 MAINTAINER Mahmoud Zalt <mahmoud@zalt.me>
 
 RUN docker-php-ext-install opcache && \
-    docker-php-ext-enable opcache \
+    docker-php-ext-enable opcache
 
 COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
-
-ADD ./custom.pool.conf /usr/local/etc/php-fpm.d/
 
 RUN rm -r /var/lib/apt/lists/*
 
