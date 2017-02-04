@@ -8,6 +8,7 @@ services:
       - /home/martin/Work:/var/www
 
   php-fpm:
+    image: x/php-fpm
     build:
       context: ./php-fpm
       args:
@@ -28,6 +29,7 @@ services:
       - NETTE_DEBUG=1
 
   nginx:
+    image: x/nginx
     build:
       context: ./nginx
       args:
@@ -44,6 +46,7 @@ services:
       - php-fpm
 
   mysql:
+    image: x/mysql
     build:
       context: ./mysql
       args:
@@ -56,6 +59,7 @@ services:
       - "3306:3306"
 
   postgres:
+    image: x/postgres
     build: ./postgres
     volumes:
       - postgres:/var/lib/postgresql/data
