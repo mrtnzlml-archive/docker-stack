@@ -40,7 +40,7 @@ services:
       args:
         - INSTALL_XDEBUG=false
         - INSTALL_ZIP_ARCHIVE=false
-        - INSTALL_OPCACHE=false
+        - INSTALL_OPCACHE=true
       dockerfile: Dockerfile-71
     volumes_from:
       - applications
