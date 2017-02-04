@@ -1,0 +1,5 @@
+*.conf
+!adeira.loc.conf
+!adminer.loc.conf
+!default.conf
+!zlml.loc.conf
