@@ -1,19 +1,17 @@
 version: '2'
-
 services:
 
-  applications: # Applications Code Container
+  applications: # Applications Code Container (for volume sharing)
     image: tianon/true
     volumes:
       - /home/martin/Work:/var/www
 
-  # https://hub.docker.com/_/composer/
-  composer:
+  composer: # https://hub.docker.com/_/composer/
     image: x/composer
     build:
       context: ./composer
 
-  php-fpm:
+  php-fpm: # https://hub.docker.com/_/php/
     image: x/php-fpm
     build:
       context: ./php-fpm
@@ -25,7 +23,7 @@ services:
     environment:
       - NETTE_DEBUG=1
 
-  nginx:
+  nginx: # https://hub.docker.com/_/nginx/
     image: x/nginx
     build:
       context: ./nginx
@@ -42,7 +40,7 @@ services:
     links:
       - php-fpm
 
-  mysql:
+  mysql: # https://hub.docker.com/_/mysql/
     image: x/mysql
     build:
       context: ./mysql
@@ -55,7 +53,7 @@ services:
     ports:
       - "3306:3306"
 
-  postgres:
+  postgres: # https://hub.docker.com/_/postgres/
     image: x/postgres
     build: ./postgres
     volumes:
