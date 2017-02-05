@@ -1,9 +1,10 @@
+[![Build Status](https://travis-ci.org/mrtnzlml/docker-stack.svg?branch=master)](https://travis-ci.org/mrtnzlml/docker-stack)
+
     docker-compose down
     docker-compose build
     docker-compose up -d
-    docker-compose logs
 
-    docker-compose logs; while [ $? -ne 0 ]; do docker-compose logs; done;
+    docker-compose logs
 
 Connect to the running container:
 
