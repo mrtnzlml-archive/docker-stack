@@ -7,6 +7,12 @@ services:
     volumes:
       - /home/martin/Work:/var/www
 
+  # https://hub.docker.com/_/composer/
+  composer:
+    image: x/composer
+    build:
+      context: ./composer
+
   php-fpm:
     image: x/php-fpm
     build:
