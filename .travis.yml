@@ -1,13 +1,16 @@
+language: generic
 sudo: required
 
 services:
   - docker
 
 before_script:
+  - sed -ri "s,-\s\"[0-9]+:[0-9]+\",,g" docker-compose.yml # remove ports
+  - sed -ri "s,ports:,,g" docker-compose.yml  # remove ports section
   - docker-compose up -d
 
 script:
-  - docker ps | grep dockerstack_mysql
-  - docker ps | grep dockerstack_nginx
-  - docker ps | grep dockerstack_php-fpm
-  - docker ps | grep dockerstack_postgres
+  - docker ps | grep x/mysql | grep 3306/tcp
+  - docker ps | grep x/nginx | grep "80/tcp, 443/tcp"
+  - docker ps | grep x/php-fpm | grep 9000/tcp
+  - docker ps | grep x/postgres | grep 5432/tcp
