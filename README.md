@@ -19,6 +19,7 @@ Connect to the running container:
 `systemctl restart dnsmasq`
 
     ln -s /home/martin/Work/mrtnzlml/docker-stack/bin/php.sh /usr/local/bin/php
+    ln -s /home/martin/Work/mrtnzlml/docker-stack/bin/composer.sh /usr/local/bin/composer
 
 Inspiration:
 - https://github.com/laradock/laradock
