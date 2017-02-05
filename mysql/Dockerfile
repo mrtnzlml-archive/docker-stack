@@ -1,7 +1,5 @@
 FROM mysql:5.7
 
-MAINTAINER Mahmoud Zalt <mahmoud@zalt.me>
-
 RUN chown -R mysql:root /var/lib/mysql/
 
 ARG MYSQL_USER=mysql
@@ -14,6 +12,6 @@ ENV MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
 
 ADD my.cnf /etc/mysql/conf.d/my.cnf
 
-CMD ["mysqld"]
-
 EXPOSE 3306
+
+CMD ["mysqld"]

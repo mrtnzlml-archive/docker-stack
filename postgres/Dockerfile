@@ -1,7 +1,5 @@
 FROM postgres:latest
 
-MAINTAINER Ben M <git@bmagg.com>
+EXPOSE 5432
 
 CMD ["postgres"]
-
-EXPOSE 5432
