@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-docker run --interactive --rm \
+docker run --interactive --rm --tty \
 		--volume $PWD:$PWD \
 		--workdir $PWD \
+		--env NETTE_DEBUG=1 \
+		--link dockerstack_postgres_1 \
+		--net dockerstack_default \
+		--user $(id -u):$(id -g) \
 		x/php-fpm php "$@"
