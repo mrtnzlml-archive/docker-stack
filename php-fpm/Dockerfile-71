@@ -23,9 +23,10 @@ RUN docker-php-ext-configure gd \
         --with-freetype-dir=/usr/include/freetype2 && \
     docker-php-ext-install gd
 
-RUN docker-php-ext-install opcache && \
-    docker-php-ext-enable opcache
+RUN docker-php-ext-install opcache && docker-php-ext-enable opcache
 COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+
+RUN docker-php-ext-install sockets && docker-php-ext-enable sockets
 
 RUN rm -r /var/lib/apt/lists/*
 
