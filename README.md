@@ -3,9 +3,7 @@
 Drive this beast
 =====
 
-    docker-compose down
-    docker-compose build
-    docker-compose up
+    docker-compose down && docker-compose build && docker-compose up -d
 
 Setup DNS via `vim /etc/dnsmasq.conf`:
 
