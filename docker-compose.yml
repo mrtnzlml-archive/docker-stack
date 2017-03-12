@@ -1,4 +1,11 @@
 version: '2'
+
+volumes:
+  mysql:
+    driver: local
+  postgres:
+    driver: local
+
 services:
 
   applications: # Applications Code Container (for volume sharing)
@@ -10,6 +17,8 @@ services:
     image: x/composer
     build:
       context: ./composer
+    volumes_from:
+      - applications
 
   php-fpm: # https://hub.docker.com/_/php/
     image: x/php-fpm
@@ -18,8 +27,6 @@ services:
       dockerfile: Dockerfile-71
     volumes_from:
       - applications
-    expose:
-      - "9000"
     environment:
       - NETTE_DEBUG=1
 
@@ -50,22 +57,12 @@ services:
         - MYSQL_ROOT_PASSWORD=root
     volumes:
       - mysql:/var/lib/mysql
-    ports:
-      - "3306:3306"
 
   postgres: # https://hub.docker.com/_/postgres/
     image: x/postgres
     build: ./postgres
     volumes:
       - postgres:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-
-volumes:
-  mysql:
-    driver: local
-  postgres:
-    driver: local

@@ -21,3 +21,11 @@ Restart DNS server using `systemctl restart dnsmasq`. Also create links for PHP 
 - Nginx
 - PHP 7.1
 - PostgreSQL
+
+## Cleanup
+
+    docker rm -v $(docker ps -a -q -f status=exited)
+    docker rmi $(docker images -f "dangling=true" -q)
+    docker volume rm $(docker volume ls -qf dangling=true)
+
+Maybe implement this: https://github.com/ZZROTDesign/docker-clean ?
