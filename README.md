@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/mrtnzlml/docker-stack.svg?branch=master)](https://travis-ci.org/mrtnzlml/docker-stack)
 
-Drive this beast
-=====
+## Drive this beast
 
     docker-compose down && docker-compose build && docker-compose up -d
 
@@ -14,3 +13,11 @@ Setup DNS via `vim /etc/dnsmasq.conf`:
 Restart DNS server using `systemctl restart dnsmasq`. Also create links for PHP and Composer:
 
     chmod +x ./init.sh && ./init.sh
+
+## What is included
+
+- Composer
+- MySQL
+- Nginx
+- PHP 7.1
+- PostgreSQL
