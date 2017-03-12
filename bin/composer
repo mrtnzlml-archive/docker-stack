@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-DOCKER_COMPOSE_FILE="$(dirname $(readlink -f $0))/../docker-compose.yml"
-WORK_DIR=$(echo $PWD | sed 's?/home/martin/Work?/var/www?')
-
-docker-compose --file $DOCKER_COMPOSE_FILE exec composer composer --working-dir=$WORK_DIR $@

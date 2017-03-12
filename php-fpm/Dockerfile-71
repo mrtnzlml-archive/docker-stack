@@ -10,7 +10,9 @@ RUN apt-get update && \
         libpng12-dev \
         libfreetype6-dev \
         libssl-dev \
-        libmcrypt-dev
+        libmcrypt-dev \
+        vim \
+        wget
 
 RUN docker-php-ext-install mcrypt
 RUN docker-php-ext-install pdo_mysql
@@ -27,12 +29,12 @@ RUN docker-php-ext-configure gd \
 RUN docker-php-ext-install opcache && docker-php-ext-enable opcache
 COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
-RUN docker-php-ext-install sockets && docker-php-ext-enable sockets
+# Install Composer
+RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | php && \
+	mv composer.phar /usr/local/bin/composer
 
 RUN rm -r /var/lib/apt/lists/*
-
 RUN usermod -u 1000 www-data
-
 WORKDIR /var/www
 
 EXPOSE 9000

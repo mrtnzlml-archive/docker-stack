@@ -13,13 +13,6 @@ services:
     volumes:
       - /home/martin/Work:/var/www
 
-  composer: # https://hub.docker.com/_/composer/
-    image: x/composer
-    build:
-      context: ./composer
-    volumes_from:
-      - applications
-
   php-fpm: # https://hub.docker.com/_/php/
     image: x/php-fpm
     build:

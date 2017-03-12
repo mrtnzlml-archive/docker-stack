@@ -2,7 +2,7 @@
 
 ## Drive this beast
 
-    docker-compose down && docker-compose build && docker-compose up -d
+    docker-compose down --remove-orphans && docker-compose build && docker-compose up -d
 
 Setup DNS via `vim /etc/dnsmasq.conf`:
 
@@ -16,11 +16,21 @@ Restart DNS server using `systemctl restart dnsmasq`. Also create links for PHP 
 
 ## What is included
 
-- Composer
 - MySQL
 - Nginx
-- PHP 7.1
+- PHP 7.1 + Composer
 - PostgreSQL
+
+## How to run PHP or Composer
+
+Connect to the PHP machine:
+
+    docker-compose exec php-fpm bash
+
+And do what you want:
+
+    php -v
+    composer out
 
 ## Cleanup
 
