@@ -36,6 +36,7 @@ RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db
 RUN rm -r /var/lib/apt/lists/*
 RUN usermod -u 1000 www-data
 WORKDIR /var/www
+USER 1000
 
 EXPOSE 9000
 
