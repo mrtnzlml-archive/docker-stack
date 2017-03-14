@@ -6,9 +6,7 @@
 
 Setup DNS via `vim /etc/dnsmasq.conf`:
 
-    address=/.adeira.loc/127.0.0.1
-    address=/.zlml.loc/127.0.0.1
-    address=/.adminer.loc/127.0.0.1
+    address=/.loc/127.0.0.1
 
 Restart DNS server using `systemctl restart dnsmasq`. Also create links for PHP and Composer:
 
@@ -20,6 +18,7 @@ Restart DNS server using `systemctl restart dnsmasq`. Also create links for PHP 
 - Nginx
 - PHP 7.1 + Composer
 - PostgreSQL
+- RabbitMQ (http://127.0.0.1:15672/)
 
 ## How to run PHP or Composer
 

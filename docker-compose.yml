@@ -59,3 +59,13 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+
+  rabbitmq:
+    image: x/rabbitmq
+    build: ./rabbitmq
+    ports:
+      - "15672:15672"
+    privileged: true
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
